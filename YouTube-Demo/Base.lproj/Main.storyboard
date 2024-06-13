@@ -145,26 +145,10 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YNi-fd-lEc">
                                             <rect key="frame" x="0.0" y="0.0" width="391" height="711"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufM-pf-Qon">
-                                                    <rect key="frame" x="158" y="338" width="75" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="Sbl-L1-Q3U"/>
-                                                        <constraint firstAttribute="width" constant="75" id="fAm-8i-LUT"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" image="play.fill" catalog="system"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ufM-pf-Qon" firstAttribute="centerX" secondItem="YNi-fd-lEc" secondAttribute="centerX" id="LjS-Xe-cLf"/>
-                                                <constraint firstItem="ufM-pf-Qon" firstAttribute="centerY" secondItem="YNi-fd-lEc" secondAttribute="centerY" id="q8z-pH-aiT"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="391" height="711"/>
                                         <connections>
-                                            <outlet property="playpauseButton" destination="ufM-pf-Qon" id="oBy-0c-ipe"/>
                                             <outlet property="videoPlayerView" destination="YNi-fd-lEc" id="1in-qJ-Bsh"/>
                                         </connections>
                                     </collectionViewCell>
@@ -211,7 +195,6 @@
     </scenes>
     <resources>
         <image name="homekit" catalog="system" width="128" height="104"/>
-        <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="video" catalog="system" width="128" height="82"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
