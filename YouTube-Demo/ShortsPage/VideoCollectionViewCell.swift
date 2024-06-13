@@ -16,12 +16,19 @@ class VideoCollectionViewCell: UICollectionViewCell {
     var playerObserver: Any?
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
+    
+    var likeButton: UIButton!
+    var dislikeButton: UIButton!
+    var commentButton: UIButton!
+    var shareButton: UIButton!
+    var remixButton: UIButton!
 
        override init(frame: CGRect) {
            super.init(frame: frame)
            setupVideoPlayerView()
            setupPlayPauseButton()
            setUpProgressView()
+           setupActionButtons()
        }
 
        required init?(coder: NSCoder) {
@@ -29,6 +36,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
            setupVideoPlayerView()
            setupPlayPauseButton()
            setUpProgressView()
+           setupActionButtons()
        }
 
        private func setupVideoPlayerView() {
@@ -65,6 +73,36 @@ class VideoCollectionViewCell: UICollectionViewCell {
                progressBar.heightAnchor.constraint(equalToConstant: 7)
            ])
        }
+    private func setupActionButtons() {
+        likeButton = createButton(withImage: UIImage(systemName: "hand.thumbsup.fill")!)
+        dislikeButton = createButton(withImage: UIImage(systemName: "hand.thumbsdown.fill")!)
+        commentButton = createButton(withImage: UIImage(systemName: "message.fill")!)
+        shareButton = createButton(withImage: UIImage(systemName: "square.and.arrow.up.fill")!)
+        remixButton = createButton(withImage: UIImage(systemName: "arrow.triangle.merge")!)
+
+        let stackView = UIStackView(arrangedSubviews: [likeButton, dislikeButton, commentButton, shareButton, remixButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        self.contentView.addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+               stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+               stackView.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+           ])
+    }
+
+    private func createButton(withImage image: UIImage) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return button
+    }
+
+    
 
     override func prepareForReuse() {
         super.prepareForReuse()
